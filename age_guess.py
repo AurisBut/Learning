@@ -1,5 +1,5 @@
 class Age:
-    def __init__(self, *tries):
+    def __init__(self, tries=0):
         self.tries = tries
         self.my_age = 14
 

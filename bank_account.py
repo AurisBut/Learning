@@ -11,12 +11,11 @@ As an added requirement, withdrawals may not exceed the available balance.
 Instantiate your class, make several deposits and withdrawals, and test to make sure the account can't be overdrawn.
 """
 
-class Account():
+
+class Account:
     def __init__(self, own, bal=0):
         self.own = own
         self.bal = bal
-        # print(f'Account owner: {own}')
-        # print(f'Account balance: {bal}')
 
     def __str__(self):
         return f"""
@@ -33,7 +32,7 @@ class Account():
         amount = float(input('\nHow much do you want to deposit: '))
         self.bal += amount
         print(' Amount Deposited:', amount)
-        print(' Current account balance is: {}'.format(self.bal))
+        print(f' Current account balance is: {self.bal}')
 
     def withdraw(self):
         question = input('\nDo you want to withdraw? Y or N? ').upper()
@@ -41,22 +40,23 @@ class Account():
             amount = float(input('Enter amount to withdraw: '))
             if self.bal >= amount:
                 self.bal -= amount
-                print('\n You have withdrew: ', amount)
-                print(' Your remaining balance is: {}'.format(self.bal))
-                print('Have a nice day!')
+                print('\n You have withdrew: ', int(amount))
+                print(f' Your remaining balance is: {self.bal}')
+                print(' Have a nice day!')
             else:
                 print('\n Insufficient balance!')
-                amount = float(input(' Please enter different amount which is lower or equal to {}: '.format(self.bal)))
+                amount = float(input(f' Please enter different amount which is lower or equal to {self.bal}: '))
                 if amount >= self.bal:
                     self.bal -= amount
                     print('\n You have withdrew: ', amount)
-                    print(' Your remaining balance is: {}'.format(self.bal))
+                    print(f' Your remaining balance is: {self.bal}')
                     print(' Have a nice day!')
                 else:
                     print('\n Insufficient balance!')
                     print(' Have a nice day!')
         else:
             print('Have a nice day!')
+
 
 acc = Account('Aurimas', 1000)
 
