@@ -1,26 +1,34 @@
-def number_guess():
-    number = int(input('Kiek man metu? '))
-    ernesto_amzius = 14
-    tries = 1
+class Age:
+    def __init__(self, *tries):
+        self.tries = tries
+        self.my_age = 14
 
-    while True:
-        if number == ernesto_amzius:
+    def guess(self):
+        self.tries = 0
+        number = int(input('How old I am?- '))
+        if number == self.my_age:
             print('')
-            print('Sveikinu, atspejai!')
-            print(f'Atspejai is {tries} karto')
-            break
+            print('Congratulations, you guessed it from the 1st time!')
         else:
-            print('')
-            print('Neatspejai mano amziaus')
-            question = input('Ar nori bandyti dar? (T/N) ').upper()
-            if question in ['T', 'TAIP', 'TEIP', 'Y', 'YES']:
-                tries += 1
-                print(f'Jau spejai {tries} kartus')
-                number = int(input('Kiek man metu? '))
-                continue
-            else:
-                print(f'Atspejai is {tries} karto')
-                break
+            if number > self.my_age:
+                print(f'\nTry no.: {self.tries}')
+                self.tries += 1
+                print(f'|-- Incorrect. I am younger than {number} --|')
+                repeat = input('Try once again? (Y/N)- ').upper()
+                if repeat == 'Y':
+                    self.guess()
+                else:
+                    pass
+            elif number < self.my_age:
+                print(f'\nTry no.: {self.tries}')
+                self.tries += 1
+                print(f'|-- Incorrect. I am older than {number} --|')
+                repeat = input('Try once again? (Y/N)- ').upper()
+                if repeat == 'Y':
+                    self.guess()
+                else:
+                    pass
 
 
-number_guess()
+x = Age(1)
+x.guess()
