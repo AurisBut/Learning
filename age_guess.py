@@ -2,13 +2,14 @@ class Age:
     def __init__(self, tries=0):
         self.tries = tries
         self.my_age = 14
+        self.tries = 1
 
     def guess(self):
-        self.tries = 0
+
         number = int(input('How old I am?- '))
         if number == self.my_age:
             print('')
-            print('Congratulations, you guessed it from the 1st time!')
+            print(f'Congratulations, you guessed it in {self.tries} tries!')
         else:
             if number > self.my_age:
                 print(f'\nTry no.: {self.tries}')
