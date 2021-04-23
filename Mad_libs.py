@@ -13,7 +13,7 @@ def istorija_mv():
 
 
 def istorija_v():
-    print('\t \n Sveiki, aš ' + vardas + '. Man yra ' + amzius +
+    print('\t \n Sveiki, aš esu' + vardas + '. Man ' + amzius +
               ' metai. \n Vaikų neturiu. Esu kilęs iš ' + miestas + '.')
 
 
