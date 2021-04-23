@@ -1,12 +1,14 @@
-bill = int(input('Kokio dydzio saskaita?- '))
-people = int(input('Kiek zmoniu valge?- '))
-tips = int(input('Kiek % arbatpinigiu paliksite?- '))
+print('|-- TIPS CALCULATOR --|')
+
+bill = float(input('How much to pay?- '))
+people = int(input('How many people ate?- '))
+tips = int(input('What % of tip will you leave?- '))
 
 def twenty_tip():
     tip = bill * tips * 0.01
-    each = tip / people
+    each = tip / people + 1
     each_rounded = round(each)
-    print(f'\n\t{tips}% arbatpinigiai nuo {bill} EUR sumos butu {tip} EUR')
-    print(f'\tKiekvienas turi moketi po {each_rounded} EUR')
+    print(f'\n\t{tips}% tip of {bill} EUR will be {round(tip, 2)} EUR')
+    print(f'\tEveryone has to pay {each_rounded} EUR')
 
 twenty_tip()
