@@ -1,35 +1,28 @@
-class Age:
-    def __init__(self, tries=0):
-        self.tries = tries
-        self.my_age = 14
-        self.tries = 1
+def guess_my_age(actual_age):
+    keep_trying = True
+    tries = 0
 
-    def guess(self):
+    while keep_trying:
 
-        number = int(input('How old I am?- '))
-        if number == self.my_age:
-            print('')
-            print(f'Congratulations, you guessed it in {self.tries} tries!')
+        tries += 1
+        print(f"Try number: {tries}")
+
+        guessed_age = int(input("How old am I? "))
+
+        if guessed_age == actual_age:
+            if tries == 1:
+                print("Congratulations, you guessed my age on your first try!")
+            else:
+                print(f"Nice, you guessed my age after {tries} tries.")
+            keep_trying = False
+
         else:
-            if number > self.my_age:
-                print(f'\nTry no.: {self.tries}')
-                self.tries += 1
-                print(f'|-- Incorrect. I am younger than {number} --|')
-                repeat = input('Try once again? (Y/N)- ').upper()
-                if repeat == 'Y':
-                    self.guess()
-                else:
-                    pass
-            elif number < self.my_age:
-                print(f'\nTry no.: {self.tries}')
-                self.tries += 1
-                print(f'|-- Incorrect. I am older than {number} --|')
-                repeat = input('Try once again? (Y/N)- ').upper()
-                if repeat == 'Y':
-                    self.guess()
-                else:
-                    pass
+            if guessed_age > actual_age:
+                print(f"Sorry, I am younger than {guessed_age}.")
+            else:
+                print(f"Sorry, I am older than {guessed_age}.")
+
+            keep_trying = input('Try again? (Y/N) ').upper() == "Y"
 
 
-x = Age(1)
-x.guess()
+guess_my_age(14)
